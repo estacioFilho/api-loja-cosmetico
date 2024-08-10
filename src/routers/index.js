@@ -6,7 +6,6 @@ const productRoutes = require('./routerProduct.js');
 const favoriteRoutes = require('./routerFavorite.js');
 
 const routes = (app) => {
-
   app.route('/').get((_req, res) => res.status(200).send({
     name: 'Api Druss',
     endPoints: {
@@ -19,10 +18,9 @@ const routes = (app) => {
   app.use(express.json(), productRoutes);
   app.use(express.json(), bagRoutes);
   app.use(express.json(), favoriteRoutes);
-  app.use(express.json(),authRoutes);
+  app.use(express.json(), authRoutes);
 
   app.use('/api/auth', authRoutes);
-
 
   app.get('/api/protected', authMiddleware);
 };

@@ -10,7 +10,7 @@ const authMiddleware = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
-    res.status(200).send('Você está em um rota protegida!');
+    res.status(200).json({ message:'Acesso permitido!'});
     next();
   } catch (error) {
     res.status(400).json({ message: 'Token inválido.' });
