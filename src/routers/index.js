@@ -1,9 +1,7 @@
 const express = require('express');
 const authMiddleware = require('../middlewares/authMiddleware.js');
 const authRoutes = require('./auth.js');
-const bagRoutes = require('./routerBag.js');
-const productRoutes = require('./routerProduct.js');
-const favoriteRoutes = require('./routerFavorite.js');
+const productRoutes = require('./product.js');
 
 const routes = (app) => {
   app.route('/').get((_req, res) => res.status(200).send({
@@ -16,8 +14,6 @@ const routes = (app) => {
   }));
 
   app.use(express.json(), productRoutes);
-  app.use(express.json(), bagRoutes);
-  app.use(express.json(), favoriteRoutes);
   app.use(express.json(), authRoutes);
 
   app.use('/api/auth', authRoutes);

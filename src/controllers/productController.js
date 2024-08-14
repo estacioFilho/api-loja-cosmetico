@@ -4,17 +4,13 @@ const product = require('../models/Products.js');
 class ProductController {
   static async listProducts(_req, res) {
     try {
-      const listProducts = await product.find({});
-      return res.status(200).json(listProducts);
-    } catch (error) {
-      if (error) {
-        return res.status(401).json({
-          error: 'Nenhum produto encontrado.',
-        });
+      const products = await product.find({});
+      if (products.length === 0) {
+        return res.status(401).json({ error: 'Nenhum produto encontrado.' });
       }
-      return res.status(500).json({
-        error: 'Erro ao listar os produtos.',
-      });
+      return res.status(200).json(products);
+    } catch (error) {
+      return res.status(500).json({ error: 'Erro ao listar os produtos.' });
     }
   }
 
@@ -34,56 +30,41 @@ class ProductController {
   }
 
   static async updateProduct(req, res) {
+    const { id } = req.params;
+    const updateData = req.body;
+
     try {
-      const { id } = req.params;
-      const { amount } = req.body;
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json(
           { error: 'ID inválido' },
         );
       }
-      const updateProduct = await product.findByIdAndUpdate(id, req.body, { new: true });
-
-      if (!updateProduct) {
-        return res.status(404).json({
-          error: 'Produto não existe.',
-          product: updateProduct,
-        });
+      const updatedProduct = await product.findByIdAndUpdate(id, updateData, { new: true });
+      if (!updatedProduct) {
+        return res.status(404).json({ error: 'Produto não existe.' });
       }
-
-      return res.status(200).json({
-        message: 'Quantidade atualizada',
-        product: updateProduct,
-      });
+      return res.status(200).json({ message: 'Produto alterado com sucesso!', product: updatedProduct });
     } catch (error) {
-      return res.status(500).json({
-        error: 'Erro no servidor.',
-        details: error.message,
-      });
+      return res.status(500).json({ error: 'Erro no servidor.', details: error.message });
     }
   }
 
   static async removeProduct(req, res) {
+    const { id } = req.params;
     try {
-      const { id } = req.params;
       if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(400).json(
           { error: 'ID inválido' },
         );
       }
-      const deleteProduct = await product.findByIdAndDelete(id);
-      if (!deleteProduct) {
-        return res.status(404).json({
-          error: 'Produto não existe.',
-        });
+
+      const deletedProduct = await product.findByIdAndDelete(id);
+      if (!deletedProduct) {
+        return res.status(404).json({ error: 'Produto não existe.' });
       }
-      return res.status(200).json({
-        message: 'Produco deletado com sucesso.',
-      });
+      return res.status(200).json({ message: 'Produto deletado com sucesso.' });
     } catch (error) {
-      return res.status(500).json({
-        erro: 'Erro no servidor.',
-      });
+      return res.status(500).json({ erro: 'Erro no servidor.' });
     }
   }
 }
