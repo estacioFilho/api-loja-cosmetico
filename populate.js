@@ -1,6 +1,30 @@
 const documents = [
   {
     images: [
+      'https://github.com/estacioFilho/imagesProjects/blob/main/druss/produtct/Hair_Reconstructor_The_bottle_is_cylin_3.jpg?raw=true',
+    ],
+    category: 'treatments',
+    name: 'Uso Diário 280ml',
+    reviews: 11,
+    price: 119.99,
+    discount: 0.25,
+    description: 'Essential treatment for hair repair. Suitable for all hair types.',
+    stock: 43,
+  },
+  {
+    images: [
+      'https://github.com/estacioFilho/imagesProjects/blob/main/druss/produtct/hydration_hair_mask_images_with_the_Dr_3.jpg?raw=true',
+    ],
+    category: 'kits',
+    name: 'Kit Mascaras nutrição Liq&Creme 30ml 200g',
+    reviews: 7,
+    price: 229.99,
+    discount: 0.12,
+    description: 'Intensive hair mask for deep conditioning. Ideal for damaged hair.',
+    stock: 23,
+  },
+  {
+    images: [
       'https://github.com/estacioFilho/imagesProjects/blob/main/druss/produtct/shampoo_bottle_The_bottle_is_cylind_1.jpg?raw=true',
     ],
     category: 'care',
@@ -70,30 +94,6 @@ const documents = [
     discount: 0.03,
     description: 'Intensive hair mask for deep conditioning. Ideal for damaged hair.',
     stock: 23,
-  },
-  {
-    images: [
-      'https://github.com/estacioFilho/imagesProjects/blob/main/druss/produtct/hydration_hair_mask_images_with_the_Dr_3.jpg?raw=true',
-    ],
-    category: 'kits',
-    name: 'Kit Mascaras nutrição Liq&Creme 30ml 200g',
-    reviews: 7,
-    price: 229.99,
-    discount: 0.12,
-    description: 'Intensive hair mask for deep conditioning. Ideal for damaged hair.',
-    stock: 23,
-  },
-  {
-    images: [
-      'https://github.com/estacioFilho/imagesProjects/blob/main/druss/produtct/Hair_Reconstructor_The_bottle_is_cylin_3.jpg?raw=true',
-    ],
-    category: 'treatments',
-    name: 'Uso Diário 280ml',
-    reviews: 11,
-    price: 119.99,
-    discount: 0.25,
-    description: 'Essential treatment for hair repair. Suitable for all hair types.',
-    stock: 43,
   },
   {
     images: [

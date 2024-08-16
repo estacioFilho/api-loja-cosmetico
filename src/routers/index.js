@@ -7,9 +7,7 @@ const routes = (app) => {
   app.route('/').get((_req, res) => res.status(200).send({
     name: 'Api Druss',
     endPoints: {
-      produtos: 'http://localhost:3001/product',
-      sacola: 'http://localhost:3001/bag',
-      favoritos: 'http://localhost:3001/favorite',
+      produtos: `http://localhost:${process.env.PORT}/product`,
     },
   }));
 

@@ -1,7 +1,7 @@
 {
   "name": "projeto-loja-cosmetico-api",
   "version": "1.0.0",
-  "description": "Uma api para usar no front da loja",
+  "description": "Uma API para usar no frontend da loja",
   "main": "index.js",
   "engines": {
     "node": ">=20.15.1",

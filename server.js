@@ -1,9 +1,7 @@
 require('dotenv/config');
 const app = require('./src/app.js');
 
-const PORT = 3001;
-
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log('Servidor em atividade!');
-  console.log('http://localhost:3001/');
+  console.log('Estcutando na porta 5022');
 });
