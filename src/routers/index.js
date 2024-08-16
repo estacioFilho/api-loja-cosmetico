@@ -7,7 +7,7 @@ const routes = (app) => {
   app.route('/').get((_req, res) => res.status(200).send({
     name: 'Api Druss',
     endPoints: {
-      produtos: `http://localhost:${process.env.PORT}/product`,
+      produtos: `https://api-druss.onrender.com/product`,
     },
   }));
 
